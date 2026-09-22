@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NYAWOONG의 웹디자인 · 퍼블리싱 포트폴리오. 브랜드의 가치를 담은 반응형 웹사이트를 만듭니다.">
+    <title>NYAWOONG | Web Design &amp; Publishing</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+</head>
+<body id="top">
+    <header class="header">
+        <div class="inner">
+            <div class="logo">
+                <a href="#top" aria-label="NYAWOONG 처음으로">
+                    <strong class="logo-name">NYAWOONG</strong>
+                    <span class="logo-sub">WEB DESIGN &amp; PUBLISHING</span>
+                </a>
+            </div>
+            <nav class="gnb" aria-label="주요 메뉴">
+                <ul>
+                    <li><a href="#works">WORKS</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button class="menu-btn" type="button" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Main visual -->
+        <section class="visual" aria-label="NYAWOONG 메인 배너">
+            <div class="slide-wrap">
+                <div class="slide-list">
+                    <div class="slide slide01 active" id="visual-slide01" role="group" aria-label="배너 1 / 1">                        
+                        <div class="inner">
+                            <div class="title-wrap">
+                                <p class="overline">브랜드의 가치를, 웹으로 완성합니다.</p>
+                                <h1 class="title" id="visual-title">Design for<br>a Better Tomorrow</h1>
+                                <p class="txt">사용자를 생각하는 디자인과 완성도 높은 퍼블리싱으로<br>브랜드에 맞는 웹사이트를 제작합니다.</p>
+                                <a href="#works" class="visual-btn motion-btn">작품 둘러보기 <img class="button-arrow" src="./assets/img/arrow.svg" alt="" width="8" height="12"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="slide-control">
+                    <span class="slide-current">01</span>
+
+                    <div class="slide-progress">
+                        <span class="slide-progress-bar"></span>
+                    </div>
+
+                    <span class="slide-total"></span>
+
+                    <button class="slide-prev" type="button" aria-label="이전 배너">
+                        ‹
+                    </button>
+
+                    <button class="slide-pause" type="button" aria-label="자동 재생 정지">
+                        ❚❚
+                    </button>
+
+                    <button class="slide-next" type="button" aria-label="다음 배너">
+                        ›
+                    </button>
+                </div>
+            </div>
+            
+            <template id="slide-hair">
+                <div class="slide slide02" id="visual-slide02" role="group" aria-label="Hair 배너">                       
+                    <div class="inner">
+                        <div class="title-wrap">
+                            <p class="overline">브랜드만의 분위기를, 웹에 담습니다.</p>
+                            <h2 class="title">Design for<br>Your Brand</h2>
+                            <p class="txt">브랜드의 개성과 사용자의 경험을 함께 생각하며<br>오래 기억되는 웹사이트를 디자인합니다.</p>
+                            <a href="#works" class="visual-btn motion-btn">작품 둘러보기 <img class="button-arrow" src="./assets/img/arrow.svg" alt="" width="8" height="12"></a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template id="slide-restaurant">
+                <div class="slide slide03" id="visual-slide03" role="group" aria-label="Restaurant 배너">                    
+                    <div class="inner">
+                        <div class="title-wrap">
+                            <p class="overline">좋은 아이디어를, 완성도 높은 웹으로.</p>
+                            <h2 class="title">Ideas into<br>Experiences</h2>
+                            <p class="txt">기획부터 디자인, 반응형 퍼블리싱까지<br>자연스럽게 이어지는 웹 경험을 만듭니다.</p>
+                            <a href="#contact" class="visual-btn motion-btn">프로젝트 문의하기 <img class="button-arrow" src="./assets/img/arrow.svg" alt="" width="8" height="12"></a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </section>
+
+        <!-- Selected projects -->
+        <section class="works" id="works" aria-labelledby="works-title">
+            <div class="inner">
+                <div class="section-head">
+                    <div class="title-wrap">
+                        <p class="overline filter-blur posUp">SELECTED PROJECTS</p>
+                        <h2 class="title filter-blur posUp delay-1" id="works-title">
+                            <span>디자인을 넘어,</span><br>
+                            <span>브랜드의 경험으로.</span>
+                        </h2>
+                    </div>
+                    <p class="txt filter-blur posUp delay-2">다양한 업종의 웹사이트를 기획부터 디자인, 퍼블리싱까지<br>직접 진행한 작업물입니다.</p>
+                </div>                
+                <div class="works-filter posUp" role="group" aria-label="작업 카테고리">
+                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">ALL</button>
+                    <button class="filter-btn" type="button" data-filter="brand" aria-pressed="false">브랜드</button>
+                    <button class="filter-btn" type="button" data-filter="restaurant" aria-pressed="false">요식업</button>
+                    <button class="filter-btn" type="button" data-filter="service" aria-pressed="false">서비스</button>
+                </div>
+                <ul class="works-list">
+                    <li class="work-item posUp" data-project-id="luxe" data-category="brand service">
+                        <a class="work-link" href="https://nyawoong.github.io/demo/LUXE/" target="_blank">
+                            <div class="work-thumb">
+                                <img src="./assets/img/project-luxe.png" alt="LUXE 헤어숍 웹사이트 대표 이미지" loading="lazy">
+                            </div>
+                            <div class="work-info">
+                                <h3 class="tit">LUXE</h3>
+                                <p class="txt">Hair Salon WebSite</p>
+                                <p class="year"><time datetime="2026">2026</time></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work-item posUp" data-project-id="maison" data-category="brand restaurant">
+                        <a class="work-link" href="https://nyawoong.github.io/demo/MAISON/" target="_blank">
+                            <div class="work-thumb">
+                                <img src="./assets/img/project-maison.png" alt="MAISON 레스토랑 웹사이트 대표 이미지" loading="lazy">
+                            </div>
+                            <div class="work-info">
+                                <h3 class="tit">MAISON</h3>
+                                <p class="txt">Restaurant WebSite</p>
+                                <p class="year"><time datetime="2026">2026</time></p>
+                            </div>
+                        </a>
+                    </li>                    
+                </ul>
+            </div>
+        </section>
+
+        <p class="works-status sr-only" aria-live="polite"></p>
+        <!-- About -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <div class="inner">
+                <div class="section-head">
+                    <div class="title-wrap">
+                        <p class="overline posUp filter-blur">ABOUT NYAWOONG</p>
+                        <h2 class="title posUp delay-1 filter-blur" id="about-title">
+                            <span>보이는 것을 넘어,</span><br>
+                            <span>경험으로 이어지는 웹.</span>
+                        </h2>
+                    </div>
+                    <p class="txt posUp delay-2 filter-blur">웹디자인을 시작으로 다양한 프로젝트를 경험하며<br>디자인과 퍼블리싱을 함께 작업해왔습니다.<br>보기 좋은 화면을 만드는 것에 그치지 않고,<br>사용성과 반응형 환경을 고려해 실제 웹에서<br>자연스럽게 작동하는 결과물을 만드는 것을<br>중요하게 생각합니다.</p>
+                </div>
+                <ul class="about-list posUp filter-blur">
+                    <li class="about-item"><h3 class="tit">10+ YEARS</h3><p class="txt">Design Experience</p></li>
+                    <li class="about-item delay-1"><h3 class="tit">DESIGN + CODE</h3><p class="txt">From UI to Publishing</p></li>
+                    <li class="about-item delay-2"><h3 class="tit">RESPONSIVE</h3><p class="txt">PC · Tablet · Mobile</p></li>
+                </ul>
+                <p class="motion-text posUp delay-5" aria-hidden="true">ABOUT</p>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services" aria-labelledby="services-title">
+            <div class="inner">
+                <div class="section-head">
+                    <div class="title-wrap">
+                        <p class="overline posUp filter-blur">SERVICE</p>
+                        <h2 class="title posUp filter-blur delay-1" id="services-title">
+                            <span>생각한 아이디어,</span><br>
+                            <span>웹이라는 결과물로.</span>
+                        </h2>
+                    </div>
+                    <p class="txt posUp filter-blur delay-2">다양한 경험을 바탕으로 기획부터 퍼블리싱까지<br>효율적인 웹 제작을 제공합니다.</p>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item posUp">
+                        <img class="service-icon icon-design" src="./assets/img/design.svg" alt="" width="48" height="48" loading="lazy">
+                        <h3 class="tit">Web Design</h3>
+                        <p class="txt">브랜드의 목적과 분위기에 맞춘<br>웹 UI 디자인</p>
+                    </li>
+                    <li class="service-item posUp">
+                        <img class="service-icon icon-responsive" src="./assets/img/responsive.svg" alt="" width="48" height="48" loading="lazy">
+                        <h3 class="tit">Responsive</h3>
+                        <p class="txt">PC·태블릿·모바일에 최적화된<br>반응형 웹 제작</p>
+                    </li>
+                    <li class="service-item posUp">
+                        <img class="service-icon icon-publishing" src="./assets/img/publishing.svg" alt="" width="48" height="48" loading="lazy">
+                        <h3 class="tit">Publishing</h3>
+                        <p class="txt">HTML·CSS·JavaScript 기반의<br>깔끔한 웹 퍼블리싱</p>
+                    </li>
+                    <li class="service-item posUp">
+                        <img class="service-icon icon-interaction" src="./assets/img/interaction.svg" alt="" width="48" height="48" loading="lazy">
+                        <h3 class="tit">UI/Interaction</h3>
+                        <p class="txt">사용자 경험을 고려한 자연스러운<br>UI 인터랙션 구현</p>
+                    </li>
+                    <li class="service-item posUp">
+                        <img class="service-icon icon-code" src="./assets/img/code.svg" alt="" width="48" height="48" loading="lazy">
+                        <h3 class="tit">Design to Code</h3>
+                        <p class="txt">완성된 디자인을 실제 웹 화면으로<br>정확하게 구현</p>
+                    </li>
+                    <li class="service-item posUp">
+                        <img class="service-icon icon-maintenance" src="./assets/img/maintenance.svg" alt="" width="48" height="48" loading="lazy">
+                        <h3 class="tit">Maintenance</h3>
+                        <p class="txt">기존 웹사이트의 디자인·퍼블리싱<br>수정 및 유지보수</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="process" id="process" aria-labelledby="process-title">
+            <div class="inner">
+                <div class="section-head">
+                    <div class="title-wrap">
+                        <p class="overline posUp filter-blur">PROCESS</p>
+                        <h2 class="title posUp filter-blur delay-1" id="process-title">
+                            <span>처음의 아이디어부터,</span><br>
+                            <span>완성되는 순간까지.</span>
+                        </h2>
+                    </div>
+                    <p class="txt posUp filter-blur delay-2">상담부터 디자인, 퍼블리싱, 최종 검수까지<br>하나의 흐름으로 함께 만들어갑니다.</p>
+                </div>
+                <ol class="process-list posUp">
+                    <li class="process-item">
+                        <h3 class="tit">상담 및 기획</h3>
+                        <p class="sub">아이디어를 구체화</p>
+                        <p class="txt">프로젝트의 목적과 방향을 확인하고 필요한 구성과 기능을 함께 정리합니다.</p>
+                    </li>
+                    <li class="process-item">
+                        <h3 class="tit">디자인 제작</h3>
+                        <p class="sub">브랜드를 화면으로</p>
+                        <p class="txt">브랜드의 분위기와 목적에 맞춰 사용성을 고려한 디자인을 제작합니다.</p>
+                    </li>
+                    <li class="process-item">
+                        <h3 class="tit">퍼블리싱</h3>
+                        <p class="sub">디자인을 실제 웹으로 구현</p>
+                        <p class="txt">HTML·CSS·JavaScript를 기반으로 반응형 웹과 인터랙션을 구현합니다.</p>
+                    </li>
+                    <li class="process-item">
+                        <h3 class="tit">검수 및 오픈</h3>
+                        <p class="sub">마지막까지 꼼꼼하게 확인</p>
+                        <p class="txt">다양한 화면과 주요 브라우저를 점검하고 최종 검수 후 사이트를 완성합니다.</p>
+                    </li>
+                </ol>
+                <p class="motion-text posUp" aria-hidden="true">PROCESS</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="contact-visual">
+                <img src="./assets/img/contact-figma.png" alt="" width="2170" height="725" loading="lazy">
+            </div>
+            <div class="inner">
+                <div class="section-head">
+                    <div class="title-wrap">
+                        <p class="overline posUp filter-blur">LET’S WORK TOGETHER</p>
+                        <h2 class="title posUp filter-blur delay-1" id="contact-title">
+                            <span>좋은 아이디어에서,</span><br>
+                            <span>멋진 웹사이트까지.</span>
+                        </h2>
+                    </div>
+                    <p class="txt posUp filter-blur delay-2">프로젝트 문의, 견적 상담 등 언제든 편하게 연락주세요.<br>빠르고 친절하게 답변드리겠습니다</p>
+                </div>
+                <a class="contact-btn posUp filter-opacity delay-3" href="mailto:skypuck@naver.com">문의하기 <img class="button-arrow" src="./assets/img/arrow.svg" alt="" width="8" height="12"></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="inner">
+            <div class="logo">
+                <a href="#top" aria-label="NYAWOONG 처음으로">
+                    <strong class="logo-name">NYAWOONG</strong>
+                    <span class="logo-sub">WEB DESIGN &amp; PUBLISHING</span>
+                </a>
+            </div>
+            <div class="footer-info">
+                <nav class="footer-nav" aria-label="하단 메뉴">
+                    <ul>
+                        <li><a href="#works">WORKS</a></li>
+                        <li><a href="#services">SERVICE</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <dl class="contact-info">
+                    <div><dt>MAIL</dt><dd><a href="mailto:skypuck@naver.com">skypuck@naver.com</a></dd></div>
+                    <div><dt>HOURS</dt><dd>09:00 - 06:00 (매주 월요일 휴무)</dd></div>
+                </dl>
+            </div>
+            <p class="copyright"><small>© 2026 NYAWOONG. All Rights Reserved.</small></p>
+        </div>
+    </footer>
+</body>
+</html>
+
