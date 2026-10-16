@@ -164,7 +164,7 @@ header .menu-btn {
     background: rgba(0, 0, 0, 0.25);
     overflow: hidden;
 }
-.slide-progress-bar {
+/* .slide-progress-bar {
     position: absolute;
     left: 0;
     top: 0;
@@ -174,6 +174,15 @@ header .menu-btn {
     background: #212121;
 
     transition: width 0.5s ease;
+} */
+.slide-progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #212121;
+    animation: slideTimer 3s linear forwards;
 }
 .slide-prev,
 .slide-next,
@@ -357,7 +366,7 @@ img { max-width: 100%; }
 .visual .overline { margin: 0; font-size: 20px; font-weight: 500; line-height: 1.4; }
 .visual .title { font-size: 60px; font-weight: 600; line-height: 73px; letter-spacing: 0; }
 .visual .txt { margin: 19px 0 61px; font-size: 20px; font-weight: 500; line-height: 1.6; }
-.visual .visual-btn,.contact-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; padding: 20px 30px; border-radius: 50px; background: var(--ink); color: white; font-size: 18px; font-weight: 500; }
+.visual .visual-btn,.contact-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; padding: 18px 30px; border-radius: 50px; border: 1px solid var(--dark); background: var(--ink); color: white; font-size: 18px; font-weight: 500; transition: background-color 0.3s, color 0.3s;}
 .button-arrow { width: 7.414px; height: 12px; transform: rotate(180deg); }
 .section-head { display: grid; grid-template-columns: 5.5fr 4.5fr; gap: 40px; align-items: end; }
 .overline { font-size: 20px; font-weight: 500; line-height: 1.2; color: #555; }
@@ -463,7 +472,7 @@ img { max-width: 100%; }
 .contact-visual img { position: absolute; max-width: none; width: 180.84%; height: 104.03%; left: -51.7%; object-fit: fill; }
 .contact-visual::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 65.34%; background: linear-gradient(90deg,#ede9e6 38.942%,transparent 90.385%); }
 .contact .section-head > .txt { color: #555; }
-.contact-btn { margin-top: 177px; padding-block: 18px; background: #111; font-weight: 600; }
+.contact-btn { margin-top: 177px; padding-block: 18px; background: #111; font-weight: 600; transition: background-color 0.3s, color 0.3s; }
 .footer { min-height: 208px; background: #111; color: white; }
 .footer .inner { position: relative; display: flex; justify-content: space-between; padding-top: 0; }
 .footer .logo { margin-top: 68px; }
@@ -477,6 +486,55 @@ img { max-width: 100%; }
 .copyright small { font-size: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 a:focus-visible,button:focus-visible { outline: 3px solid #b67b48; outline-offset: 5px; }
+
+
+
+.visual .visual-btn:hover {
+    background-color: var(--paper);
+    color: var(--dark);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.visual .visual-btn .ico-arrow {
+    display: block;
+    width: 8px;
+    height: 12px;
+    background-color: var(--paper);
+
+    -webkit-mask: url('../assets/img/arrow.svg') no-repeat center/contain;
+    mask: url('../assets/img/arrow.svg') no-repeat center/contain;
+
+    transition: background-color 0.3s;
+    transform: rotate(-180deg);
+}
+.visual .visual-btn:hover .ico-arrow {
+    background-color: var(--dark);
+}
+
+
+.contact-btn:hover {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: var(--paper);
+    color: var(--dark);
+}
+
+.contact-btn .ico-arrow {
+    display: block;
+    height: 12px;
+    width: 9px;
+    background-color: #fff;
+
+    mask: url('../assets/img/arrow.svg') no-repeat center/contain;
+    -webkit-mask: url('../assets/img/arrow.svg') no-repeat center/contain;
+
+    transition: background-color 0.3s;
+    transform: rotate(-180deg);
+}
+.contact-btn:hover .ico-arrow {
+    background-color: var(--dark);
+}
+
+
 @media (max-width: 1199px) {
     .inner,.visual .inner { width: calc(100% - 32px); }
     .section-head .title { font-size: 34px; }
@@ -565,5 +623,17 @@ a:focus-visible,button:focus-visible { outline: 3px solid #b67b48; outline-offse
     }
     .process .motion-text.posUp.active {
         transform: translate(-50%, 130px);
+    }
+}
+
+
+
+@keyframes slideTimer {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
     }
 }

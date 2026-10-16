@@ -277,11 +277,24 @@ function showSlide(index) {
 
 
     // 진행바
-    const progress =
-        ((currentIndex + 1) / slides.length) * 100;
+    // const progress =
+    //     ((currentIndex + 1) / slides.length) * 100;
 
-    progressBar.style.width =
-        progress + '%';
+    // progressBar.style.width =
+    //     progress + '%';
+    // 타이머 진행바 처음부터 시작
+    progressBar.style.animation = 'none';
+
+    // 브라우저에 변경사항 적용
+    void progressBar.offsetWidth;
+
+    // 3초 동안 진행바 채우기
+    progressBar.style.animation = 'slideTimer 3s linear forwards';
+
+    // 일시정지 상태라면 진행바도 정지
+    if (paused) {
+        progressBar.style.animationPlayState = 'paused';
+    }
 
 }
 
