@@ -710,7 +710,8 @@ a:focus-visible,button:focus-visible { outline: 3px solid #b67b48; outline-offse
     bottom: 0;
     display: none;
     height: calc(100% - 50px);
-    left: 50%;    
+    left: 50%;
+    max-width: 1280px; 
     display: block;    
     position: fixed;
     transform: translate(-50%, 100%);
