@@ -9,6 +9,7 @@
     <script src="./js/main.js" defer></script>
 </head>
 <body id="top">
+    <div class="dim"></div>
     <header class="header">
         <div class="inner">
             <div class="logo">
@@ -277,7 +278,7 @@
                     </div>
                     <p class="txt posUp filter-blur delay-2">프로젝트 문의, 견적 상담 등 언제든 편하게 연락주세요.<br>빠르고 친절하게 답변드리겠습니다</p>
                 </div>
-                <a class="contact-btn posUp filter-opacity delay-3" href="mailto:skypuck@naver.com">문의하기
+                <a class="contact-btn posUp filter-opacity delay-3">문의하기
                     <span class="ico-arrow" aria-hidden="true"></span>
                 </a>
             </div>
@@ -305,9 +306,201 @@
                     <div><dt>HOURS</dt><dd>09:00 - 06:00 (매주 월요일 휴무)</dd></div>
                 </dl>
             </div>
-            <p class="copyright"><small>© 2026 NYAWOONG. All Rights Reserved.</small></p>
+            <p class="copyright">
+                <small>© 2026 NYAWOONG STUDIO. All Rights Reserved.</small>
+                <span class="link-agreement">
+                    <a href="./privacy.html">개인정보 처리방침</a>
+                </span>
+            </p>
         </div>
     </footer>
+    <div class="contact-bottom-sheet">
+        <div class="sheet-header">
+            <h3 class="tit">문의하기</h3>
+            <button type="button" class="close-btn" aria-label="닫기">
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+        <div class="sheet-body">
+            <form id="contactForm" novalidate>
+                <div class="cont">
+                    <section class="head">
+                        <div class="txt-area">
+                            <h3 class="tit">프로젝트를<br>이야기 해주세요.</h3>
+                            <p class="txt">작은 아이디어부터 새로운 웹사이트까지,<br>편하게 문의 해주세요.</p>
+                        </div>
+                        <div class="head-img">
+                            <img src="./assets/img/character.png">
+                        </div>
+                    </section>
+                    <section class="round-box-list">
+                        <div class="temp tem01">
+                            <div class="tem-head">
+                                <h4 class="tit">어떤 작업이 필요하신가요?<span class="required" aria-label="필수">*</span></h4>
+                                <span class="tip-info"><span class="required" aria-label="필수">*</span>필수 입력 항목</span>
+                            </div>
+                            <div class="tem-cont">
+                                <div class="round-box">
+                                    <input type="radio" name="service" id="web" value="홈페이지 디자인 / 제작" required>
+                                    <label for="web">
+                                        <img src="./assets/img/ico-pc.png">
+                                        <span class="txt">홈페이지<br>디자인 / 제작</span>
+                                    </label>
+                                </div>
+                                <div class="round-box">
+                                    <input type="radio" name="service" id="pages" value="랜딩페이지 / 상세페이지" required>
+                                    <label for="pages">
+                                        <img src="./assets/img/ico-mobile.png">
+                                        <span class="txt">랜딩페이지<br>상세페이지</span>
+                                    </label>
+                                </div>
+                                <div class="round-box">
+                                    <input type="radio" name="service" id="publishing" value="퍼블리싱" required>
+                                    <label for="publishing">
+                                        <img src="./assets/img/ico-code.png">
+                                        <span class="txt">퍼블리싱</span>
+                                    </label>
+                                </div>
+                                <div class="round-box">
+                                    <input type="radio" name="service" id="etc" value="기타 / 상담" required>
+                                    <label for="etc">
+                                        <img src="./assets/img/ico-message.png">
+                                        <span class="txt">기타 / 상담</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="error-msg" id="serviceError">서비스 항목을 하나 선택해 주세요.</p>
+                        </div>
+                        <div class="temp tem02">
+                            <div class="half-cont">
+                                <div class="tem-head">
+                                    <h4 class="tit">예상 예산</h4>
+                                </div>
+                                <div class="tem-cont">
+                                    <div class="cust-inp">
+                                        <input type="text" name="budget" placeholder="아직 정하지 않았어요">
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="half-cont">
+                                <div class="tem-head">
+                                    <h4 class="tit">희망 일정</h4>
+                                </div>
+                                <div class="tem-cont">
+                                    <div class="cust-inp">
+                                        <input type="text" name="schedule" placeholder="2026-12-11">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp tem03">
+                            <div class="half-cont">
+                                <div class="tem-head">
+                                    <h4 class="tit">성함 또는 업체명<span class="required" aria-label="필수">*</span></h4>
+                                </div>
+                                <div class="tem-cont">
+                                    <div class="cust-inp">
+                                        <input type="text" name="customerName" placeholder="어떻게 불러드리면 될까요?" required>
+                                    </div>
+                                    <p class="error-msg" id="nameError">성함 또는 업체명을 입력해 주세요.</p>
+                                </div>
+                            </div>
+                            <div class="half-cont">
+                                <div class="tem-head">
+                                    <h4 class="tit">이메일<span class="required" aria-label="필수">*</span></h4>
+                                </div>
+                                <div class="tem-cont">
+                                    <div class="cust-inp">
+                                        <input type="email" name="email" placeholder="답변 받을 이메일 주소" required>
+                                    </div>
+                                    <p class="error-msg" id="emailError">이메일 주소를 입력해 주세요.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp tem04">
+                            <div class="tem-head">
+                                <h4 class="tit">프로젝트 내용<span class="required" aria-label="필수">*</span></h4>
+                            </div>
+                            <div class="tem-cont">
+                                <div class="cust-area">
+                                    <textarea name="message" placeholder="필요한 작업, 참고 사이트, 일정, 예산 등 자유롭게 알려주세요." required></textarea>
+                                </div>
+                                <p class="error-msg" id="messageError">프로젝트 내용을 입력해 주세요.</p>                                    
+                            </div>                        
+                        </div>
+                    </section>
+                    <div class="agreement-wrapper">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        <label for="agreement" class="agreement-label">
+                            <span class="agreement-txt">개인정보 수집 및 이용에 동의합니다. (필수)</span>
+                        </label>                        
+                        <button type="button" class="agreement-btn">내용보기</button>
+                    </div>
+                    <p class="error-msg" id="agreementError">개인정보 수집·이용에 동의해 주세요.</p>
+                    <button type="submit" class="contact-button">문의 보내기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="privacy-modal" id="privacyModal"
+        role="dialog" aria-modal="true"
+        aria-labelledby="privacyTitle" hidden>
+
+        <div class="privacy-content">
+            <h3 id="privacyTitle">개인정보 수집·이용 안내</h3>
+            <p>NYAWOONG STUDIO는 프로젝트 문의 및 상담을 위해 아래와 같이 개인정보를 수집·이용합니다.</p>
+            <h4 class="tit">1. 수집 항목</h4>
+            <ul>
+                <li>필수: 성함 또는 업체명, 이메일 주소, 요청 서비스 유형, 문의 내용</li>
+                <li>선택: 예상 예산, 희망 일정</li>
+                <li>문의 내용에 이용자가 직접 기재한 개인정보가 포함될 수 있습니다.</li>
+            </ul>
+            <h4 class="tit">2. 수집 및 이용 목적</h4>
+            <ul>
+                <li>프로젝트 문의 확인 및 답변</li>
+                <li>견적 상담 및 관련 안내</li>
+            </ul>
+            <h4 class="tit">3. 보유 및 이용 기간</h4>
+            <ul>
+                <li>문의 처리 완료일로부터 1년</li>
+                <li>단, 관련 법령에 따라 보존이 필요한 경우 해당 법령에서 정한 기간 동안 보관합니다.</li>
+            </ul>
+            <h4 class="tit">4. 동의 거부 권리</h4>
+            <ul>
+                <li>개인정보 수집·이용 동의를 거부할 수 있습니다.</li>
+                <li>다만 동의하지 않을 경우 온라인 문의 접수가 제한됩니다.</li>
+            </ul>
+
+            <button type="button" class="privacy-close">
+                확인
+            </button>
+        </div>
+    </div>
+    
+    <!-- 문의 접수 결과 팝업 -->
+    <div class="result-modal" id="resultModal"
+        role="dialog" aria-modal="true"
+        aria-labelledby="resultTitle" hidden>
+
+        <div class="result-content">
+            <div class="result-icon">✓</div>
+
+            <h3 id="resultTitle">문의가 접수되었습니다!</h3>
+
+            <p id="resultMessage">
+                NYAWOONG STUDIO에 문의해 주셔서 감사합니다.
+                내용 확인 후 이메일로 답변드리겠습니다.
+            </p>
+
+            <button type="button" class="result-close">
+                확인
+            </button>
+        </div>
+    </div>
+
+
 </body>
 </html>
 

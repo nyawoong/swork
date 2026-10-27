@@ -687,3 +687,219 @@ posUp.forEach(function (item) {
     observer.observe(item);
 
 });
+
+
+
+// 버튼 이벤트(컨텍트 창 오픈)
+const contactBtn = document.querySelector('.contact-btn');
+const contactBottomSheet = document.querySelector('.contact-bottom-sheet');
+const dim = document.querySelector('.dim');
+const closeBtn = contactBottomSheet.querySelector('.close-btn');
+
+
+// 컨텐츠 바깥 클릭 정의 함수
+function closeSheet() {
+    contactBottomSheet.classList.remove('is-open');
+    dim.classList.remove('is-open');
+};
+
+
+// 컨텍트 버튼 클릭
+contactBtn.addEventListener('click', function(){
+    contactBottomSheet.classList.add('is-open');
+    dim.classList.add('is-open');
+});
+
+// 컨텍트 바깥 클릭
+document.addEventListener('click', function(e) {
+    const isInside = contactBottomSheet.contains(e.target);
+    const isButton = contactBtn.contains(e.target);
+
+    if (!privacyModal.hidden || !resultModal.hidden) {
+        return;
+    }
+
+    if (!isInside && !isButton) {
+        closeSheet();
+    }
+
+});
+
+// 바텀시트 X버튼 클릭
+closeBtn.addEventListener('click', closeSheet);
+
+
+// 정보동의 모달팝업
+const privacyBtn = document.querySelector('.agreement-btn');
+const privacyModal = document.querySelector('#privacyModal');
+const privacyClose = document.querySelector('.privacy-close');
+
+privacyBtn.addEventListener('click', function() {
+    privacyModal.hidden = false;
+    privacyClose.focus();
+});
+
+privacyClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+
+    privacyModal.hidden = true;
+    privacyBtn.focus();
+});
+
+
+const resultModal = document.querySelector('#resultModal');
+const resultTitle = document.querySelector('#resultTitle');
+const resultMessage = document.querySelector('#resultMessage');
+const resultIcon = document.querySelector('.result-icon');
+const resultClose = document.querySelector('.result-close');
+
+function showResult(success) {
+    if (success) {
+        resultTitle.textContent = '문의가 접수되었습니다!';
+        resultMessage.textContent =
+            'NYAWOONG STUDIO에 문의해 주셔서 감사합니다. 내용 확인 후 이메일로 답변드리겠습니다.';
+        resultIcon.textContent = '✓';
+    } else {
+        resultTitle.textContent = '문의 전송에 실패했습니다.';
+        resultMessage.textContent =
+            '잠시 후 다시 시도해 주세요. 입력하신 내용은 유지됩니다.';
+        resultIcon.textContent = '!';
+    }
+
+    resultModal.hidden = false;
+    resultClose.focus();
+}
+
+resultClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    resultModal.hidden = true;
+});
+
+
+// 바텀시트 form 검사
+const contactForm = document.querySelector('#contactForm');
+
+// 오류 문구 표시 함수
+function showError(id, message) {
+    const error = document.querySelector(id);
+
+    error.textContent = message;
+    error.classList.toggle('is-show', message !== '');
+}
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const service = contactForm.querySelector(
+        'input[name="service"]:checked'
+    );
+    const name = contactForm.querySelector(
+        'input[name="customerName"]'
+    );
+    const email = contactForm.querySelector(
+        'input[name="email"]'
+    );
+    const message = contactForm.querySelector(
+        'textarea[name="message"]'
+    );
+    const agreement = contactForm.querySelector('#agreement');
+
+    let isValid = true;
+
+    // 서비스 선택
+    if (!service) {
+        showError('#serviceError', '서비스 항목을 선택해 주세요.');
+        isValid = false;
+    } else {
+        showError('#serviceError', '');
+    }
+
+    // 성함 또는 업체명
+    if (!name.value.trim()) {
+        showError('#nameError', '성함 또는 업체명을 입력해 주세요.');
+        isValid = false;
+    } else {
+        showError('#nameError', '');
+    }
+
+    // 이메일
+    if (!email.value.trim()) {
+        showError('#emailError', '이메일을 입력해 주세요.');
+        isValid = false;
+    } else if (!email.validity.valid) {
+        showError('#emailError', '올바른 이메일 주소를 입력해 주세요.');
+        isValid = false;
+    } else {
+        showError('#emailError', '');
+    }
+
+    // 프로젝트 내용
+    if (!message.value.trim()) {
+        showError('#messageError', '프로젝트 내용을 입력해 주세요.');
+        isValid = false;
+    } else {
+        showError('#messageError', '');
+    }
+
+    // 개인정보 동의
+    if (!agreement.checked) {
+        showError('#agreementError', '개인정보 수집·이용에 동의해 주세요.');
+        isValid = false;
+    } else {
+        showError('#agreementError', '');
+    }
+
+    // 하나라도 오류가 있으면 제출 중단
+    
+    if (!isValid) {
+        return;
+    }
+
+    // 여기부터 실제 메일 전송
+    const submitBtn = contactForm.querySelector('[type="submit"]');
+
+    async function sendContact() {
+        submitBtn.disabled = true;
+        submitBtn.textContent = '전송 중...';
+
+        try {
+            const response = await fetch('https://formspree.io/f/xpppwwgb', {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('전송 실패');
+            }
+
+            // alert('문의가 정상적으로 접수되었습니다.');
+
+            // 전송 성공
+            contactForm.reset();
+
+            contactForm.querySelectorAll('.error-msg').forEach(function(error) {
+                error.classList.remove('is-show');
+            });
+
+            closeSheet();
+            showResult(true);
+
+        } catch (error) {
+            console.error(error);
+            showResult(false);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = '문의 보내기';
+        }
+    }
+
+    sendContact();
+
+
+    // 다음 단계: 실제 메일 전송 기능 연결
+});
+
+
